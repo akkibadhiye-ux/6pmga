@@ -2,7 +2,7 @@ name: CI-WORKFLOW
 on: workflow_dispatch
 
 jobs:
-  buil-test:
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
