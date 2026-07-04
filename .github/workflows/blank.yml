@@ -12,13 +12,22 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          
+
       - name: build
         run: npm install
 
       - name: test
         run: npm test
         
+      - name: Artifact upload
+        uses: actions/upload-artifact@v7
+        with:
+          name: artifact-1
+          path: |
+             package*
+
       - name: deploy
         run: echo "my code is deployed"
+        
+
 
