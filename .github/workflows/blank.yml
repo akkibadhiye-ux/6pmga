@@ -3,32 +3,23 @@ on: workflow_dispatch
 
 jobs:
   buil-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: checkout
         uses: actions/checkout@v7
 
-      - name: installing nodejs
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-
       - name: build
         run: npm install
 
-{
-  "name": "6pmga",
-  "version": "1.0.0",
-  "description": "Your project description",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {}
-}
+      - name: test
+        run: npm test
         
+      - name: Artifact upload
+        uses: actions/upload-artifact@v7
+        with:
+          name: artifact-1
+          path: |
+             package*
 
-
+      - name: deploy
+        run: echo "my code is deployed"
