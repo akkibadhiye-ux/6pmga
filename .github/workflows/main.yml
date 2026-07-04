@@ -7,7 +7,7 @@ first-jobs:
     - name: print greeting
       run: echo "Hellow World!"
     - name: print goodbye
-      run: echo " Done - bye!"concurrency: 
+      run: echo " Done - bye!" 
       
     
                   
