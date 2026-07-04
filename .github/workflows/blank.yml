@@ -3,23 +3,12 @@ on: workflow_dispatch
 
 jobs:
   buil-test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v7
 
-      - name: build
-        run: npm install
-
-      - name: test
-        run: npm test
-        
-      - name: Artifact upload
-        uses: actions/upload-artifact@v7
+      - name: installing nodejs
+        uses: actions/setup-node@v6
         with:
-          name: artifact-1
-          path: |
-             package*
-
-      - name: deploy
-        run: echo "my code is deployed"
+          node-version: 24
