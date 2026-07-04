@@ -12,3 +12,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
+          
+      - name: build
+        run: npm install
+
+      - name: test
+        run: npm test
+        
+      - name: deploy
+        run: echo "my code is deployed"
+
